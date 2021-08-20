@@ -132,7 +132,7 @@ def LFSR(bits, tap_positions, inp_data, op_bits):
     return output_data
 
 
-list = []
+datosAgrupados = []
 
 for i in range(1000):
     seed1 = np.random.randint(1, 30000)
@@ -151,21 +151,14 @@ for i in range(1000):
     inp_data = [int(i) for i in inp_data]
     op_bits = 10
     # Llama a la funcion LFSR
-    s2 = LFSR(bits, tap_positions, inp_data, op_bits)
+    # s2 = LFSR(bits, tap_positions, inp_data, op_bits)
     # s2 = Wichmann_Hill(semillas, 8)
-    # s2 = LCG(random.randint(1, 13), random.randint(
-    #     1, 13), random.randint(1, 20))
-    # print(s2)
+    s2 = LCG(7, 8, 5)
+    print(s2)
     # intervalos = ['00', '01', '10', '11']
-    list.append(test(s2))
+    datosAgrupados.append(test(s2))
     print(i, test(s2))
 
-intervalos = ['0.2', '0.5', '0.7', '0.9']
-n, bins, patches = plt.hist(list)
-plt.xlabel("Valores")
-plt.ylabel("Frecuencia")
-plt.title("Histograma")
-plt.show()
 
 # print(LCG(7, 8, 5))
 # print(Wichmann_Hill(semillas, 8))
