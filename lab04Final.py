@@ -153,7 +153,8 @@ for i in range(1000):
     # Llama a la funcion LFSR
     # s2 = LFSR(bits, tap_positions, inp_data, op_bits)
     # s2 = Wichmann_Hill(semillas, 8)
-    s2 = LCG(7, 8, 5)
+    s2 = LCG(random.randint(1, 10), random.randint(
+        1, 10), random.randint(1, 10))
     print(s2)
     # intervalos = ['00', '01', '10', '11']
     datosAgrupados.append(test(s2))
